@@ -28,8 +28,8 @@ class Csharplint(Linter):
     platform = sublime.platform()
     gmcsFile = "gmcs.bat" if platform == "windows" else "gmcs"
     gmcsFile += " "
-    base_cmd = (
-        gmcsFile
+    base_cmd = gmcsFile
+    args = (
         " *"
         " -target:library"
         " -out:/tmp/errorcheck.dll"
@@ -37,6 +37,9 @@ class Csharplint(Linter):
         #" sdk:3.5" # Unity uses .NET 3.5
         #" -r:./*.dll" # Recursively add all libraries within the folder of file
     )
+
+    base_cmd += args
+
     regex = (
         r'^(?P<filename>.+\.cs)\((?P<line>\d+),(?P<col>\d+)\): (?:(?P<error>error)|(?P<warning>warning)) \w+: (?P<message>.+)'
     )
