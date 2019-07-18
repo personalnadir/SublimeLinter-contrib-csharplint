@@ -56,8 +56,7 @@ class Csharplint(Linter):
 
         result = self.base_cmd
 
-        extra = []
-        extra = self.get_setting("completesharp_assemblies", [])
+        extra = self.settings.get("completesharp_assemblies", [])
         if not extra:
             return result
 
@@ -73,11 +72,6 @@ class Csharplint(Linter):
         result += " -nostdlib" # Unity has its own
 
         return result
-
-    def get_setting(self, key, default=None):
-        settings = sublime.active_window().active_view().settings()
-        return settings.get(key, default)
-
 
     def expand_path(self, value, window=None, checkExists=True):
         if window == None:
