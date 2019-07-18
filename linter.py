@@ -58,7 +58,7 @@ class Csharplint(Linter):
 
         extra = self.settings.get("completesharp_assemblies", [])
         if not extra:
-            return result
+            return result + " $file"
 
         result += " -r:"
 
@@ -71,7 +71,7 @@ class Csharplint(Linter):
         result += ','.join([shlex.quote(newextra) for newextra in extra])
         result += " -nostdlib" # Unity has its own
 
-        return result
+        return result + " $file"
 
     def expand_path(self, value, window=None, checkExists=True):
         if window == None:
