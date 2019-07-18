@@ -26,7 +26,6 @@ class Csharplint(Linter):
 
     defaults = {
         'selector': 'source.cs',
-        '--filter=,': ''
     }
 
     platform = sublime.platform()
