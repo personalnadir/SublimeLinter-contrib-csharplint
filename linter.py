@@ -24,7 +24,11 @@ class Csharplint(Linter):
 
     """Provides an interface to csharplint."""
 
-    syntax = ("c#", "unityc#")
+    defaults = {
+        'selector': 'source.cs',
+        '--filter=,': ''
+    }
+
     platform = sublime.platform()
     gmcsFile = "gmcs.bat" if platform == "windows" else "gmcs"
     gmcsFile += " "
@@ -45,21 +49,10 @@ class Csharplint(Linter):
     )
     tempfile_suffix = '.cs'
     error_stream = util.STREAM_BOTH  # errors are on stderr
-    defaults = {
-        '--filter=,': '',
-    }
-    #comment_re = r'\s*/[/*]'
-    inline_settings = None
-    inline_overrides = 'filter'
-
     executable = None
     executable_path = '<builtin>'
-    version_args = '--version'
-    version_re = r'(?P<version>\d+\.\d+\.\d+)'
-    version_requirement = '>= 1.0'
     multiline = False
     line_col_base = (1, 1)
-    selectors = {}
     word_re = None
 
     def split_match(self, match):
