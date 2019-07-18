@@ -86,7 +86,7 @@ class Csharplint(Linter):
 
         extra = []
         extra = self.get_setting("completesharp_assemblies", [])
-        if len(extra) == 0:
+        if not extra:
             return result
 
         #result += ","
