@@ -99,26 +99,16 @@ class Csharplint(Linter):
         for path in extra:
             newextra.extend(glob.glob(self.expand_path(path, window, False)))
         extra = newextra
-        cmd = ""
-        q = "\""
 
         result += ','.join([shlex.quote(newextra) for newextra in extra])
-        #print("Result: $ '" + result + "'")
-        #result += "%s%s%s" % (q, ";;--;;".join(extra), q)
-        #
         result += " -nostdlib" # Unity has its own
 
         return result
 
-    # following are copied from completionscommon package:
     def get_setting(self, key, default=None):
-        try:
-            s = sublime.active_window().active_view().settings()
-            if s.has(key):
-                return s.get(key)
-        except:
-            pass
-        return self.get_view_settings().get(key, default)
+        settings = sublime.active_window().active_view().settings()
+        return settings.get(key, default)
+
 
     def expand_path(self, value, window=None, checkExists=True):
         if window == None:
