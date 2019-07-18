@@ -25,9 +25,11 @@ class Csharplint(Linter):
     """Provides an interface to csharplint."""
 
     syntax = ("c#", "unityc#")
-
+    platform = sublime.platform()
+    gmcsFile = "gmcs.bat" if platform == "windows" else "gmcs"
+    gmcsFile += " "
     base_cmd = (
-        "gmcs.bat "
+        gmcsFile
         " *"
         " -target:library"
         " -out:/tmp/errorcheck.dll"
