@@ -36,9 +36,6 @@ class Csharplint(Linter):
         " *"
         " -target:library"
         " -out:/tmp/errorcheck.dll"
-        #" -out:stdout" doesn't work like that
-        #" sdk:3.5" # Unity uses .NET 3.5
-        #" -r:./*.dll" # Recursively add all libraries within the folder of file
     )
 
     base_cmd += args
@@ -64,7 +61,6 @@ class Csharplint(Linter):
         if not extra:
             return result
 
-        #result += ","
         result += " -r:"
 
         newextra = []
