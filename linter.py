@@ -29,9 +29,9 @@ class Csharplint(Linter):
     }
 
     platform = sublime.platform()
-    gmcsFile = "gmcs.bat" if platform == "windows" else "gmcs"
-    gmcsFile += " "
-    base_cmd = gmcsFile
+    compilerFile = "mcs.bat" if platform == "windows" else "mcs"
+    compilerFile += " "
+    base_cmd = compilerFile
     args = (
         " *"
         " -target:library"
