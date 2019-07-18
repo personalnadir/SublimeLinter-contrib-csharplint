@@ -47,12 +47,6 @@ class Csharplint(Linter):
         r'^(?P<filename>.+\.cs)\((?P<line>\d+),(?P<col>\d+)\): (?:(?P<error>error)|(?P<warning>warning)) \w+: (?P<message>.+)'
     )
     tempfile_suffix = '.cs'
-    error_stream = util.STREAM_BOTH  # errors are on stderr
-    executable = None
-    executable_path = '<builtin>'
-    multiline = False
-    line_col_base = (1, 1)
-    word_re = None
 
     def cmd(self):
         """
