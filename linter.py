@@ -41,7 +41,7 @@ class Csharplint(Linter):
     base_cmd += args
 
     regex = (
-        r'^(?P<filename>.+\.cs)\((?P<line>\d+),(?P<col>\d+)\): (?:(?P<error>error)|(?P<warning>warning)) \w+: (?P<message>.+)'
+        r'^(?P<filename>.+\.cs)\((?P<line>\d+),(?P<col>\d+)\): (?:(?P<error>error)|(?P<warning>warning)) (?P<code>\w+): (?P<message>.+)'
     )
     tempfile_suffix = '.cs'
 
@@ -96,6 +96,7 @@ class Csharplint(Linter):
                 for path in [os.path.join(f, m.group('file'))] \
                 if checkExists and os.path.exists(path) or not checkExists
             ]
+
         value = re.sub(r'\${project_path:(?P<file>[^}]+)}', lambda m: len(get_existing_files(m)) > 0 and get_existing_files(m)[0] or m.group('file'), value)
         value = re.sub(r'\${env:(?P<variable>[^}]+)}', lambda m: os.getenv(m.group('variable')) if os.getenv(m.group('variable')) else "%s_NOT_SET" % m.group('variable'), value)
         value = re.sub(r'\${home}', os.getenv('HOME') if os.getenv('HOME') else "HOME_NOT_SET", value)
