@@ -52,21 +52,21 @@ On Mac OS:
 
 Bear in mind that Unity Hub will install Unity in different locations based on the version number.
 
-```
+<pre><code>
 "completesharp_assemblies": [
-    "**unity path**Managed/UnityEngine.dll",
-    "**unity path**Managed/UnityEditor.dll",
-    "**unity path**/Mono/lib/mono/unity/UnityScript.dll",
-    "**unity path**/Mono/lib/mono/unity/System.Core.dll",
-    "**unity path**/Mono/lib/mono/unity/System.dll",
-    "**unity path**/Mono/lib/mono/unity/mscorlib.dll",
-    "**unity path**/Mono/lib/mono/2.0/nunit.framework.dll",
-    "**unity project path**/Library/ScriptAssemblies/Assembly-CSharp.dll",
-    "**unity project path**/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
-    "**unity project path**/Library/ScriptAssemblies/Assembly-UnityScript.dll",
-    "**unity project path**/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
+    "<b><i>unity path</i></b>Managed/UnityEngine.dll",
+    "<b><i>unity path</i></b>Managed/UnityEditor.dll",
+    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/UnityScript.dll",
+    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/System.Core.dll",
+    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/System.dll",
+    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/mscorlib.dll",
+    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/2.0/nunit.framework.dll",
+    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-CSharp.dll",
+    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
+    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-UnityScript.dll",
+    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
 ]
-```
+</pre></code>
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
