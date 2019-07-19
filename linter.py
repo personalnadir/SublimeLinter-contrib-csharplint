@@ -38,6 +38,7 @@ class Csharplint(Linter):
         " -out:/tmp/errorcheck.dll"
     )
 
+    error_stream = SublimeLinter.lint.STREAM_STDERR
     base_cmd += args
 
     regex = (
