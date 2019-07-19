@@ -10,7 +10,7 @@ A linter(software) called 'csharplint' does not exist, this simply uses Mono or 
 ![Unity C# Warning](https://lh4.googleusercontent.com/-9TlxxCqwPoU/VD1Wzhr9PhI/AAAAAAAABbc/9gxZ9ViXMMc/w895-h398-no/unitycsharplinter.png)
 
 ## Installation
-SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
+SublimeLinter 4 must be installed in order to use this plugin. If SublimeLinter 4 is not installed, please follow the instructions [here][installation].
 
 ### Linter installation
 Before using this plugin, you must ensure that Mono or the default .NET framework is installed on your system. Mono installations that come with software may also be used, like in the case of Unity 3D.
@@ -38,12 +38,35 @@ To install via Package Control, do the following:
 ## Settings
 For general information on how SublimeLinter works with settings, please see [Settings][settings]. For information on generic linter settings, please see [Linter Settings][linter-settings].
 
-In addition to the standard SublimeLinter settings, SublimeLinter-contrib-csharplint provides its own settings. Those marked as “Inline Setting” or “Inline Override” may also be [used inline][inline-settings].
+## Using with Unity
 
-|Setting|Description|Inline Setting|Inline Override|
-|:------|:----------|:------------:|:-------------:|
-|foo|Something.|&#10003;| |
-|bar|Something else.| |&#10003;|
+In order to run csharplint with Unity you will need to add the "completesharp_assemblies" list to your csharplint entry in the Sublime Linter settings. These will be platform dependent.
+
+On Windows your unity path will resemble:
+
+C:\\Program Files\\Unity\\Editor\\Data\\Managed\\
+
+On Mac OS:
+
+/Applications/Unity/Hub/Editor/2019.1.10f1/Unity.app/Contents/
+
+Bear in mind that Unity Hub will install Unity in different locations based on the version number.
+
+```
+"completesharp_assemblies": [
+    "**unity path**Managed/UnityEngine.dll",
+    "**unity path**Managed/UnityEditor.dll",
+    "**unity path**/Mono/lib/mono/unity/UnityScript.dll",
+    "**unity path**/Mono/lib/mono/unity/System.Core.dll",
+    "**unity path**/Mono/lib/mono/unity/System.dll",
+    "**unity path**/Mono/lib/mono/unity/mscorlib.dll",
+    "**unity path**/Mono/lib/mono/2.0/nunit.framework.dll",
+    "**unity project path**/Library/ScriptAssemblies/Assembly-CSharp.dll",
+    "**unity project path**/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
+    "**unity project path**/Library/ScriptAssemblies/Assembly-UnityScript.dll",
+    "**unity project path**/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
+]
+```
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
