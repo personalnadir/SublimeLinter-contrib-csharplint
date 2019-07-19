@@ -68,8 +68,8 @@ class Csharplint(Linter):
         folders = set([os.path.dirname(path) for path in newextra])
         assemblies = set([os.path.basename(path) for path in newextra])
 
-        result += '-lib:' + ','.join([shlex.quote(newextra) for newextra in folders])
-        result += '-r:' + ','.join([shlex.quote(newextra) for newextra in assemblies])
+        result += ' -lib:' + ','.join([shlex.quote(newextra) for newextra in folders])
+        result += ' -r:' + ','.join([shlex.quote(newextra) for newextra in assemblies])
         result += " -nostdlib" # Unity has its own
 
         return result + " $file"
