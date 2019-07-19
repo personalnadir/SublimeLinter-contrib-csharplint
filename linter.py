@@ -10,15 +10,15 @@
 
 """This module exports the Csharplint plugin class."""
 
-import sublime
 import shlex
 
 # for completionscommon functions
 import re
 import glob
 import os
+import sublime
 
-from SublimeLinter.lint import Linter, util
+from SublimeLinter.lint import Linter
 
 class Csharplint(Linter):
 
@@ -60,15 +60,16 @@ class Csharplint(Linter):
         if not extra:
             return result + " $file"
 
-        result += " -r:"
-
         newextra = []
         window = sublime.active_window()
         for path in extra:
             newextra.extend(glob.glob(self.expand_path(path, window, False)))
-        extra = newextra
 
-        result += ','.join([shlex.quote(newextra) for newextra in extra])
+        folders = set([os.path.dirname(path) for path in newextra])
+        assemblies = set([os.path.basename(path) for path in newextra])
+
+        result += '-lib:' + ','.join([shlex.quote(newextra) for newextra in folders])
+        result += '-r:' + ','.join([shlex.quote(newextra) for newextra in assemblies])
         result += " -nostdlib" # Unity has its own
 
         return result + " $file"
