@@ -18,7 +18,7 @@ import glob
 import os
 import sublime
 
-from SublimeLinter.lint import Linter
+from SublimeLinter.lint import Linter, STREAM_STDERR
 
 class Csharplint(Linter):
 
