@@ -54,19 +54,29 @@ Bear in mind that Unity Hub will install Unity in different locations based on t
 
 <pre><code>
 "completesharp_assemblies": [
-    "<b><i>unity path</i></b>Managed/UnityEngine.dll",
-    "<b><i>unity path</i></b>Managed/UnityEditor.dll",
-    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/UnityScript.dll",
-    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/System.Core.dll",
-    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/System.dll",
-    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/unity/mscorlib.dll",
-    "<b><i>unity path</i>i></Managed>b>/Mono/lib/mono/2.0/nunit.framework.dll",
-    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-CSharp.dll",
-    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
-    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-UnityScript.dll",
-    "<b><i>unity project path</i>i></Managed>b>/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
+    "<b><i>unity path</i></b> Managed/UnityEngine.dll",
+    "<b><i>unity path</i></b> Managed/UnityEditor.dll",
+    "<b><i>unity path</i></b> Mono/lib/mono/unity/UnityScript.dll",
+    "<b><i>unity path</i></b> Mono/lib/mono/unity/System.Core.dll",
+    "<b><i>unity path</i></b> Mono/lib/mono/unity/System.dll",
+    "<b><i>unity path</i></b> Mono/lib/mono/unity/mscorlib.dll",
+    "<b><i>unity path</i></b> Mono/lib/mono/2.0/nunit.framework.dll",
+    "<b><i>unity project path</i></b> Library/ScriptAssemblies/Assembly-CSharp.dll",
+    "<b><i>unity project path</i></b> Library/ScriptAssemblies/Assembly-CSharp-Editor.dll",
+    "<b><i>unity project path</i></b> Library/ScriptAssemblies/Assembly-UnityScript.dll",
+    "<b><i>unity project path</i></b> Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
 ]
 </pre></code>
+
+e.g.:
+
+<pre><code>
+"completesharp_assemblies": [
+    "/Applications/Unity/Hub/Editor/2019.1.10f1/Unity.app/Contents/Managed/UnityEngine.dll",
+    ...
+]
+</pre></code>
+
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
