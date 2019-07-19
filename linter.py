@@ -18,7 +18,7 @@ import glob
 import os
 import sublime
 
-from SublimeLinter.lint import Linter
+from SublimeLinter.lint import Linter, STREAM_STDERR
 
 class Csharplint(Linter):
 
@@ -38,7 +38,7 @@ class Csharplint(Linter):
         " -out:/tmp/errorcheck.dll"
     )
 
-    error_stream = SublimeLinter.lint.STREAM_STDERR
+    error_stream = STREAM_STDERR
     base_cmd += args
 
     regex = (
